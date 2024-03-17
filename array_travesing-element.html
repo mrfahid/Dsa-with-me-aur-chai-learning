@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Traversing and Dynamic Accessing</title>
+  </head>
+  <body>
+    <h1>DSA Array Traversing and Dynamic Accessing</h1>
+    <p>Dynamic Accessing array element</p>
+    <label for="element">
+      Access array element
+      <input type="text" name="text" id="element" />
+    </label>
+    <button onclick="accessElement()" type="button">accessElement</button>
+
+    <!-- script tag here -->
+    <script>
+      // Initialize an array with some values
+      let array = [3, 2, 44, 30, 11, 12, 19, 200];
+
+      // Using for loop to traverse the array elements and log them to the console
+      for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+      }
+
+      // Access the array element at index 2
+      let x = array[2];
+      console.log(`The element is ${x}`);
+
+      // Output:  44
+
+      // Function to access the array element at a specific index
+      function accessElement() {
+        let input = Number(document.getElementById("element").value);
+        console.log(input);
+
+        if (input < array.length && !isNaN(input) && input >= 0) {
+          // If the input is a valid number and within the array bounds, display the array element at the specified index
+          alert(array[input]);
+        } else {
+          // If the input is not a valid number or out of array bounds, display an error message
+          alert("input valid number");
+          alert("input valid number");
+        }
+      }
+    </script>
+  </body>
+</html>

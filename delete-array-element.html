@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array element Deletion</title>
+    <style>
+      h1 {
+        background-color: gold;
+        padding: 10px;
+        border-radius: 4px;
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>delete an element in array</h1>
+    <br />
+    <label for="index">Delete element by index: </label>
+    <input type="text" id="index" />
+    <button type="button" onclick="deleteAtIndexDynamically()">
+      deleteElement
+    </button>
+
+    <!-- script tag here -->
+    <script>
+      // Create an array containing the elements.
+      let array = [44, 11, 23, 26, 33, 10];
+
+      function deleteAtIndex(array, index) {
+        // using loop to delete array element
+        for (let i = index; i < array.length - 1; i++) {
+          array[i] = array[i + 1];
+        }
+        array.length = array.length - 1;
+      }
+
+      // Example usage:
+      deleteAtIndex(array, 3);
+      console.log(array);
+
+      // define a faction dynamically deleting the elements in an array.
+      function deleteAtIndexDynamically() {
+        let array = [44, 55, 66, 77, 88, 99];
+        let index = Number(document.getElementById("index").value);
+
+        // Check if the index value is a valid number and not greater than the array length
+        if (isNaN(index) || index > array.length) {
+          alert(
+            "Please enter a valid index value that is less than or equal to the array length and ."
+          );
+        }
+
+        // Check if the element index value is a valid number and not negative
+        if (isNaN(index) || index < 0) {
+          alert(
+            "Please enter a valid element index value that is not negative."
+          );
+        }
+
+        // using loop delete element from array.
+        for (let i = index; i < array.length - 1; i++) {
+          array[i] = array[i + 1];
+        }
+        array.length = array.length - 1;
+        console.log(array);
+      }
+    </script>
+  </body>
+</html>

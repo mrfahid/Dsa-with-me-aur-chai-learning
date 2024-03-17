@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array inserting</title>
+    <style>
+      h1 {
+        background-color: gold;
+        padding: 10px;
+        border-radius: 4px;
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Array inserting elements at specific index in JavaScript</h1>
+
+    <p>Dynamically insert element in an array with help of input</p>
+    <label for="position">specific position value : </label>
+    <input type="text" id="position" />
+    <label for="elemIndex">Index to be inserted : </label>
+    <input type="text" id="elemIndex" />
+    <button onclick="insertAtSpecific()" type="button">insertAt</button>
+
+    <!-- script tag is here -->
+    <script type="text/javascript">
+      // Create an array containing the elements.
+      let array = [2, 3, 4, 33, 23, 22, 15, 26];
+      // function to insert element at a given position within JavaScript array element.
+      function insertAt(arr, elem, position) {
+        // // prebuilt javaScript method to insert element.
+        // arr.splice(position, 0, elem);
+
+        // using for loop to insert element in array.
+        for (let i = arr.length - 1; i >= 0; i--) {
+          if (i >= position) {
+            arr[i + 1] = arr[i];
+            if (i === position) {
+              arr[i] = elem;
+            }
+          }
+        }
+      }
+
+      insertAt(array, 200, 3);
+      console.log("Original Array : ", array);
+      
+
+      function insertAtSpecific() {
+        // Get the values of the input fields
+        let array2 = [2, 3, 4, 33, 23, 22, 15, 26];
+        let posValue = Number(document.getElementById("position").value);
+        let elemIndex = Number(document.getElementById("elemIndex").value);
+
+        // Check if the position value is a valid number and not greater than the array length
+        if (isNaN(posValue) || posValue > array2.length) {
+          alert(
+            "Please enter a valid position value that is less than or equal to the array length."
+          );
+          return;
+        }
+
+        // Check if the element index value is a valid number and not negative
+        if (isNaN(elemIndex) || elemIndex < 0) {
+          alert(
+            "Please enter a valid element index value that is not negative."
+          );
+          return;
+        }
+
+        // Insert the element at the specified position within the array
+        for (let i = array2.length - 1; i >= 0; i--) {
+          if (i >= posValue) {
+            array2[i + 1] = array2[i];
+            if (i === posValue) {
+              array2[i] = elemIndex;
+            }
+          }
+        }
+        console.log(array2);
+      }
+
+      insertAtSpecific();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Array Element</title>
+    <style>
+      h1 {
+        background-color: gold;
+        padding: 10px;
+        border-radius: 4px;
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Search Array Element</h1>
+
+    <p>Search Element in an array with input</p>
+    <label for="searchEl">Search Element</label>
+    <input type="text" id="searchEl" />
+    <button type="button" onclick="searchAtIndexByInput()">Search</button>
+    <!-- script tag here -->
+    <script>
+      // create an array containing elements
+      let array = [44, 12, 33, 55, 46, 77, 88];
+
+      function searchAtIndex(arr, item, index) {
+        // Using loop to the Search element
+        for (let i = 0; i < arr.length - 1; i++) {
+          if (arr[i] == item) {
+            index = i;
+            break;
+          }
+        }
+        console.log(arr);
+        return `Element ${item} is found at index ${index}`;
+      }
+
+      // Example Usage:
+      let result = searchAtIndex(array, 33, 0);
+      console.log(result);
+
+      // default implementation search method in JS
+      console.log(`Element 33 is found at index ${array.indexOf(33)}`);
+
+      // Dynamic search method
+      function searchAtIndexByInput() {
+        let arr = [44, 12, 33, 55, 46, 77, 88];
+        let item = Number(document.getElementById("searchEl").value);
+        let index;
+
+        if (isNaN(item)) {
+          alert(
+            "Please enter a valid number value that is less than or equal to the array length."
+          );
+        }
+
+        for (let i = 0; i < arr.length - 1; i++) {
+          if (arr[i] === item) {
+            index = i;
+            break;
+          }
+        }
+        console.log(arr);
+        return console.log(`Element ${item} is found at index ${index}`);
+      }
+
+      let result2 = searchAtIndexByInput();
+      console.log(result2);
+    </script>
+  </body>
+</html>
